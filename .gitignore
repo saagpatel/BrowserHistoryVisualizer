@@ -1,0 +1,12 @@
+backend/venv/
+backend/data/analytics_cache.json
+backend/data/categories.json
+backend/data/settings.json
+frontend/node_modules/
+frontend/dist/
+nginx/bhv.conf.installed
+nginx/logs/
+nginx/nginx.pid
+*.pyc
+__pycache__/
+.DS_Store

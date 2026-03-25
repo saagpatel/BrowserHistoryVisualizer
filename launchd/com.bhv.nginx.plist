@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+    <key>Label</key>             <string>com.bhv.nginx</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>__NGINX_BIN__</string>
+        <string>-c</string>
+        <string>__PROJECT_DIR__/nginx/bhv.conf.installed</string>
+        <string>-g</string>
+        <string>daemon off;</string>
+    </array>
+    <key>KeepAlive</key>         <true/>
+    <key>RunAtLoad</key>         <true/>
+    <key>StandardOutPath</key>   <string>__PROJECT_DIR__/nginx/logs/stdout.log</string>
+    <key>StandardErrorPath</key> <string>__PROJECT_DIR__/nginx/logs/stderr.log</string>
+</dict></plist>
