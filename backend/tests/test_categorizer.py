@@ -85,9 +85,10 @@ class TestCategorizeVisits:
 
         with open(cache_file) as f:
             cache = json.load(f)
-        assert "github.com" in cache
-        assert cache["github.com"]["source"] == "static"
-        assert cache["github.com"]["category"] == "devtools"
+        github_entry = cache.get("github.com")
+        assert github_entry is not None
+        assert github_entry["source"] == "static"
+        assert github_entry["category"] == "devtools"
 
     def test_user_override_takes_priority(self, tmp_path, monkeypatch):
         """User overrides should take priority over static allowlist."""
