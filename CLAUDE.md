@@ -12,9 +12,9 @@ stays on 127.0.0.1 — no cloud services, no telemetry, no external requests.
 - uvicorn: 0.29+ — ASGI server, bound to 127.0.0.1:8000
 - pandas: 2.x — vectorized visit normalization and analytics
 - anthropic: 0.25+ — batch domain categorization, cached permanently
-- React + TypeScript: 18 / 5.x — hooks-only frontend
-- Vite: 5.x — dev server (proxy to :8000) + production build to frontend/dist/
-- Recharts: 2.x — 4 of 5 charts
+- React + TypeScript: 19 / 5.x — hooks-only frontend
+- Vite: 8.x — dev server (proxy to :8000) + production build to frontend/dist/
+- Recharts: 3.x — 4 of 5 charts
 - D3: 7.x — rabbit hole force-directed graph only
 - nginx (Homebrew): serves frontend/dist/ on 127.0.0.1:8080, reverse-proxies /api/ to :8000
 - launchd: 3 agents — com.bhv.server, com.bhv.nginx, com.bhv.pipeline (daily 6am)
@@ -83,9 +83,9 @@ See IMPLEMENTATION-ROADMAP.md → Phase 3 for tasks and acceptance criteria.
 - uvicorn: 0.29+ — ASGI server, bound to 127.0.0.1:8000
 - pandas: 2.x — vectorized visit normalization and analytics
 - anthropic: 0.25+ — batch domain categorization, cached permanently
-- React + TypeScript: 18 / 5.x — hooks-only frontend
-- Vite: 5.x — dev server (proxy to :8000) + production build to frontend/dist/
-- Recharts: 2.x — 4 of 5 charts
+- React + TypeScript: 19 / 5.x — hooks-only frontend
+- Vite: 8.x — dev server (proxy to :8000) + production build to frontend/dist/
+- Recharts: 3.x — 4 of 5 charts
 - D3: 7.x — rabbit hole force-directed graph only
 - nginx (Homebrew): serves frontend/dist/ on 127.0.0.1:8080, reverse-proxies /api/ to :8000
 - launchd: 3 agents — com.bhv.server, com.bhv.nginx, com.bhv.pipeline (daily 6am)
@@ -93,10 +93,14 @@ See IMPLEMENTATION-ROADMAP.md → Phase 3 for tasks and acceptance criteria.
 ## How To Run
 
 ```bash
-# Start backend
-cd backend && python main.py
+# Start both services together (recommended)
+make dev
+# Open http://localhost:5173
 
-# Start frontend (separate terminal)
+# Or start manually:
+# Backend
+cd backend && uvicorn main:app --host 127.0.0.1 --port 8000 --reload
+# Frontend (separate terminal)
 cd frontend && npm run dev
 # Open http://localhost:5173
 ```

@@ -36,10 +36,14 @@ cd frontend && npm install
 
 ### Usage
 ```bash
-# Start backend
-cd backend && python main.py
+# Start both services together (recommended)
+make dev
+# Open http://localhost:5173
 
-# Start frontend (separate terminal)
+# Or start manually:
+# Backend
+cd backend && uvicorn main:app --host 127.0.0.1 --port 8000 --reload
+# Frontend (separate terminal)
 cd frontend && npm run dev
 # Open http://localhost:5173
 ```

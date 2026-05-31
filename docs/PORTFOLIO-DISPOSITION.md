@@ -189,7 +189,7 @@ can fail. A future portfolio sweep should explicitly check
 | Field | Value |
 |---|---|
 | **Default branch** | **`feat/initial-release`** (`origin/HEAD` points here) |
-| `origin/feat/initial-release` tip | `35b0c32` chore: add initial CHANGELOG |
+| `origin/feat/initial-release` tip | `62da3e3` docs(context): add portfolio recovery context |
 | `origin/main` tip | `bb83f15` chore: add MIT license (essentially empty) |
 | Last substantive commit | `568c98a` feat: complete Browser History Visualizer (Phases 0-3) |
 | Build system | Python (backend) + React (frontend), no monorepo manager visible |
