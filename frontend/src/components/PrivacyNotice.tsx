@@ -1,15 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const STORAGE_KEY = "bhv-privacy-dismissed";
 
 export function PrivacyNotice() {
-	const [visible, setVisible] = useState(false);
-
-	useEffect(() => {
-		if (!localStorage.getItem(STORAGE_KEY)) {
-			setVisible(true);
-		}
-	}, []);
+	const [visible, setVisible] = useState(
+		() => !localStorage.getItem(STORAGE_KEY),
+	);
 
 	if (!visible) return null;
 

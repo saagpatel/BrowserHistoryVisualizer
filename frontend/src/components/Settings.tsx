@@ -61,7 +61,7 @@ export function Settings({ status, onRefreshComplete }: SettingsProps) {
 					`Classified ${result.classified} domains in ${result.api_calls} API call(s)`,
 				);
 			}
-		} catch (err) {
+		} catch {
 			setCatResult("Categorization failed");
 		} finally {
 			setCategorizing(false);
