@@ -24,7 +24,7 @@ pandas==3.0.3
 pluggy==1.6.0
 pyarrow==23.0.1
 pydantic==2.13.4
-pydantic_core==2.46.4
+pydantic_core==2.47.0
 Pygments==2.20.0
 pytest==9.1.1
 python-dateutil==2.9.0.post0
@@ -38,7 +38,7 @@ sniffio==1.3.1
 starlette==1.3.1
 tokenizers==0.23.1
 tqdm==4.68.3
-typer==0.25.0
+typer==0.26.8
 typing-inspection==0.4.2
 typing_extensions==4.16.0
 tzdata==2026.2
