@@ -4,8 +4,8 @@ Local personal analytics web app — reads Chrome, Atlas, and Comet SQLite histo
 
 ## Stack
 
-- Python 3.12 (CI), FastAPI 0.141.1 (API-only), uvicorn 0.54.0 bound to 127.0.0.1:8000
-- pandas 3.0.6 — vectorized visit normalization; anthropic 1.3.0 — optional batch categorization, cached on disk
+- Python 3.12 (CI), FastAPI 0.142.1 (API-only), uvicorn 0.54.0 bound to 127.0.0.1:8000
+- pandas 3.0.6 — vectorized visit normalization; anthropic 1.9.0 — optional batch categorization, cached on disk
 - React + TypeScript 19 / 5.x (hooks-only), Vite 8.x (dev proxy to :8000; prod build to `frontend/dist/`)
 - Recharts 3.x (3 charts; heatmap uses custom SVG), D3 7.x (rabbit hole force-directed graph only)
 - nginx (Homebrew): serves `frontend/dist/` on 127.0.0.1:8080, reverse-proxies `/api/` to :8000
@@ -79,10 +79,10 @@ See IMPLEMENTATION-ROADMAP.md → Phase 3 for tasks and acceptance criteria.
 ## Stack
 
 - Python: 3.12 (CI)
-- FastAPI: 0.141.1 — async REST API, API-only (no static file serving)
+- FastAPI: 0.142.1 — async REST API, API-only (no static file serving)
 - uvicorn: 0.54.0 — ASGI server, bound to 127.0.0.1:8000
 - pandas: 3.0.6 — vectorized visit normalization and analytics
-- anthropic: 1.3.0 — optional batch domain categorization, cached on disk
+- anthropic: 1.9.0 — optional batch domain categorization, cached on disk
 - React + TypeScript: 19 / 5.x — hooks-only frontend
 - Vite: 8.x — dev server (proxy to :8000) + production build to frontend/dist/
 - Recharts: 3.x — 3 of 5 charts; heatmap uses custom SVG
