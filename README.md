@@ -20,7 +20,7 @@ BHV reads your Chromium-family browser history files directly, runs an analysis 
 ## Quick Start
 
 ### Prerequisites
-- Python 3.11+
+- Python 3.12+
 - Node.js 18+
 - macOS (uses `~/Library/Application Support` paths)
 
