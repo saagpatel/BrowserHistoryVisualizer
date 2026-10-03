@@ -2,14 +2,14 @@
 
 [![Python](https://img.shields.io/badge/python-%233776ab?style=flat-square&logo=python)](#) [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](#)
 
-> Find out where your time actually goes — without sending your browsing history anywhere.
+> Find out where your time actually goes — with local history analysis and optional AI domain classification.
 
-BHV reads your Chromium-family browser history files directly, runs an analysis pipeline, and serves a React dashboard showing how you actually spend time online. No cloud, no tracking — your history stays on your machine.
+BHV reads your Chromium-family browser history files directly, runs an analysis pipeline, and serves a React dashboard showing how you actually spend time online. No tracking — history analysis stays on your machine; optional Claude AI classification sends domain names to Anthropic.
 
 ## Features
 
-- **Multi-browser detection** — auto-discovers Chrome, Arc, Brave, Edge, Vivaldi, Opera, and any Chromium browser under `~/Library/Application Support`
-- **GitHub-style activity heatmap** — visits per day with 5-level intensity buckets across your full history
+- **Multi-browser detection** — discovers Chromium `Default/History` files one or two directory levels under `~/Library/Application Support`, with name mappings for Chrome, Atlas, Comet, Arc, Brave, Edge, Vivaldi, and Opera
+- **GitHub-style activity heatmap** — visits per day with 5-level intensity buckets across the selected date range (last 30 days by default)
 - **Category breakdown** — domain visits and estimated minutes per topic category (static allowlist + optional Claude AI classification)
 - **Top domains** — ranked by visit count with category and estimated time
 - **Hourly productivity chart** — focus vs. distraction minutes by hour
@@ -21,7 +21,7 @@ BHV reads your Chromium-family browser history files directly, runs an analysis 
 
 ### Prerequisites
 - Python 3.12+
-- Node.js 18+
+- Node.js 22.12+ (or 20.19+; required by the locked Vite toolchain)
 - macOS (uses `~/Library/Application Support` paths)
 
 ### Installation
@@ -31,7 +31,8 @@ cd BrowserHistoryVisualizer
 python3 -m venv backend/venv
 source backend/venv/bin/activate
 pip install -r backend/requirements.txt
-cd frontend && npm install
+cd frontend && npm ci
+cd ..
 ```
 
 ### Usage
@@ -52,11 +53,17 @@ cd frontend && npm run dev
 
 | Layer | Technology |
 |-------|------------|
-| Backend | Python 3.11, FastAPI, pandas, uvicorn |
+| Backend | Python 3.12+, FastAPI, pandas, uvicorn |
 | Frontend | React 19 + TypeScript + Tailwind CSS 4 + Recharts + D3 |
 | AI categorization | Anthropic Claude API (optional) |
 | Proxy | nginx (Homebrew) |
 | Service management | macOS launchd |
+
+## Verification
+
+See [the contributor verification guide](CONTRIBUTING.md#verification) for
+fixture tests, frontend checks, and safe browser checks. Normal backend startup
+can run the history pipeline when its cache is missing; it is not an offline smoke.
 
 ## License
 
