@@ -21,7 +21,7 @@ BHV reads your Chromium-family browser history files directly, runs an analysis 
 
 ### Prerequisites
 - Python 3.12+
-- Node.js 18+
+- Node.js 22.12+ (or 20.19+; required by the locked Vite toolchain)
 - macOS (uses `~/Library/Application Support` paths)
 
 ### Installation
@@ -31,7 +31,8 @@ cd BrowserHistoryVisualizer
 python3 -m venv backend/venv
 source backend/venv/bin/activate
 pip install -r backend/requirements.txt
-cd frontend && npm install
+cd frontend && npm ci
+cd ..
 ```
 
 ### Usage
@@ -52,11 +53,17 @@ cd frontend && npm run dev
 
 | Layer | Technology |
 |-------|------------|
-| Backend | Python 3.11, FastAPI, pandas, uvicorn |
+| Backend | Python 3.12+, FastAPI, pandas, uvicorn |
 | Frontend | React 19 + TypeScript + Tailwind CSS 4 + Recharts + D3 |
 | AI categorization | Anthropic Claude API (optional) |
 | Proxy | nginx (Homebrew) |
 | Service management | macOS launchd |
+
+## Verification
+
+See [the contributor verification guide](CONTRIBUTING.md#verification) for
+fixture tests, frontend checks, and safe browser checks. Normal backend startup
+can run the history pipeline when its cache is missing; it is not an offline smoke.
 
 ## License
 
