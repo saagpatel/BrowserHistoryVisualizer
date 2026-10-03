@@ -2,14 +2,14 @@
 
 [![Python](https://img.shields.io/badge/python-%233776ab?style=flat-square&logo=python)](#) [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](#)
 
-> Find out where your time actually goes — without sending your browsing history anywhere.
+> Find out where your time actually goes — with local history analysis and optional AI domain classification.
 
-BHV reads your Chromium-family browser history files directly, runs an analysis pipeline, and serves a React dashboard showing how you actually spend time online. No cloud, no tracking — your history stays on your machine.
+BHV reads your Chromium-family browser history files directly, runs an analysis pipeline, and serves a React dashboard showing how you actually spend time online. No tracking — history analysis stays on your machine; optional Claude AI classification sends domain names to Anthropic.
 
 ## Features
 
-- **Multi-browser detection** — auto-discovers Chrome, Arc, Brave, Edge, Vivaldi, Opera, and any Chromium browser under `~/Library/Application Support`
-- **GitHub-style activity heatmap** — visits per day with 5-level intensity buckets across your full history
+- **Multi-browser detection** — discovers Chromium `Default/History` files one or two directory levels under `~/Library/Application Support`, with name mappings for Chrome, Atlas, Comet, Arc, Brave, Edge, Vivaldi, and Opera
+- **GitHub-style activity heatmap** — visits per day with 5-level intensity buckets across the selected date range (last 30 days by default)
 - **Category breakdown** — domain visits and estimated minutes per topic category (static allowlist + optional Claude AI classification)
 - **Top domains** — ranked by visit count with category and estimated time
 - **Hourly productivity chart** — focus vs. distraction minutes by hour
